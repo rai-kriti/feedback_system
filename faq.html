@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zephyr Group</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="favicon.png"  type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .satisfaction-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .satisfaction-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .filter-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .filter-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .faq-content.expanded {
+            max-height: 500px;
+        }
+        
+        .expand-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .expand-icon.expanded {
+            transform: rotate(180deg);
+        }
+
+       
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen">
+    
+    
+    <div class="container mx-auto ">
+        <!-- Header -->
+        <header class="bg-white/80 backdrop-blur-sm fixed top-5 z-50 mx-auto left-0 right-0 w-[90%] max-w-6xl rounded-full shadow-lg border border-gray-100">
+            <nav class="flex items-center justify-between px-6 py-3">
+              <!-- Logo and Nav Items Here -->
+              <div class="flex items-center space-x-2">
+                <img src="weblogo.png" alt="" class="max-h-10 max-w-full object-contain" >
+              </div>
+          
+              <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-indigo-600 transition">Home</a>
+                <a href="aboutus.html" class="text-gray-600 hover:text-indigo-600 transition">About</a>
+                <a href="contact.php" class="text-gray-600 hover:text-indigo-600 transition">Contact</a>
+                <a href="faq.html" class="text-gray-600 hover:text-indigo-600 transition">FAQs</a>
+                <a href="tnc.html" class="text-gray-600 hover:text-indigo-600 transition">Terms & Conditions</a>
+              </div>
+          
+              <div class="flex items-center space-x-4">
+                <div class="relative group">
+                  <button id="loginBtn" class="px-4 py-2 text-gray-600 hover:text-indigo-600 font-medium transition flex items-center">
+                    Login
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden z-50 border border-gray-100">
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">User Login</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Admin Login</a>
+                  </div>
+                </div>
+                <button id="signupBtn" class="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition font-medium">Sign Up</button>
+              </div>
+            </nav>
+        </header>
+        <div class="mt-5 h-20"></div>
+        
+        <div class="bg-white rounded-xl shadow-md w-full max-w-[1000px] mx-auto overflow-hidden">
+            <!-- Text Section -->
+            <div class="w-full text-center px-4 md:px-8 py-4">
+                <h2 class="text-2xl md:text-3xl font-bold text-pink-600 mb-2">
+                    Have Questions?
+                </h2>
+                <p class="text-gray-700 text-base max-w-2xl mx-auto mb-4">
+                    We're here to help! Find answers to your most common doubts, instantly. 
+                    <a 
+                        href="#faq-container" 
+                        class="text-blue-600 no-underline transition-transform duration-300 hover:scale-105 hover:no-underline hover:text-blue-700 inline-block"
+                    >
+                        Read the FAQs
+                    </a>
+                </p>
+            </div>
+          
+            <!-- Image Section -->
+            <div class="w-[50%] pb-4 px-4 mx-auto">
+                <img src="faqimg.jpeg" alt="FAQ Illustration" class="w-full h-auto max-h-[250px] object-cover object-center rounded-lg" />
+            </div>
+        </div>
+          
+          <div class="mt-3 h-5"></div>
+          
+        
+        <!-- Satisfaction Check -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-12 max-w-4xl mx-auto animate-fadeIn" style="animation-delay: 0.2s;">
+            <h2 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center ">
+                <i class="fas fa-smile-beam text-blue-500 mr-3"></i>
+                Are you satisfied with your current power supply?
+            </h2>
+            <div class="flex flex-wrap justify-center gap-4 mt-6">
+                <button class="satisfaction-btn bg-blue-100 hover:bg-blue-200 text-blue-800 px-6 py-3 rounded-full font-medium flex items-center" data-satisfied="yes">
+                    <i class="fas fa-thumbs-up mr-2"></i> Yes, very satisfied
+                </button>
+                <button class="satisfaction-btn bg-blue-100 hover:bg-blue-200 text-blue-800 px-6 py-3 rounded-full font-medium flex items-center" data-satisfied="somewhat">
+                    <i class="fas fa-meh mr-2"></i> Somewhat satisfied
+                </button>
+                <button class="satisfaction-btn bg-blue-100 hover:bg-blue-200 text-blue-800 px-6 py-3 rounded-full font-medium flex items-center" data-satisfied="no">
+                    <i class="fas fa-thumbs-down mr-2"></i> Not satisfied
+                </button>
+            </div>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="max-w-2xl mx-auto mb-10 animate-fadeIn" style="animation-delay: 0.25s;">
+            <div class="relative">
+                <input type="text" id="search-faq" placeholder="Search FAQs..." class="w-full px-6 py-4 rounded-full border-0 shadow-md focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <i class="fas fa-search absolute right-6 top-1/2 transform -translate-y-1/2 text-blue-400"></i>
+            </div>
+        </div>
+        
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10 animate-fadeIn" style="animation-delay: 0.3s;">
+            <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-full font-medium transition-all active" data-filter="all">
+                <i class="fas fa-layer-group mr-2"></i> All
+            </button>
+            <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded-full font-medium transition-all" data-filter="outages">
+                <i class="fas fa-power-off mr-2"></i> Outages
+            </button>
+            <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded-full font-medium transition-all" data-filter="billing">
+                <i class="fas fa-file-invoice-dollar mr-2"></i> Billing
+            </button>
+            <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded-full font-medium transition-all" data-filter="safety">
+                <i class="fas fa-shield-alt mr-2"></i> Safety
+            </button>
+            <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded-full font-medium transition-all" data-filter="equipment">
+                <i class="fas fa-tools mr-2"></i> Equipment
+            </button>
+            <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded-full font-medium transition-all" data-filter="solar">
+                <i class="fas fa-solar-panel mr-2"></i> Solar
+            </button>
+        </div>
+        
+        <!-- FAQ Items -->
+        <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto" id="faq-container">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn" style="animation-delay: 0.4s;" data-category="outages">
+                <div class="p-6">
+                    <div class="flex justify-between items-start cursor-pointer" onclick="toggleFAQ(this)">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-power-off text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">How do I report a power outage?</h3>
+                                <p class="text-sm text-blue-600 font-medium">
+                                    <i class="fas fa-clock mr-2"></i> Updated 2 days ago
+                                </p>
+                            </div>
+                        </div>
+                        <button class="expand-icon text-blue-500 ml-4">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-content mt-4">
+                        <p class="text-gray-600 mb-4 pl-16">You can report outages through our mobile app, by calling our 24/7 hotline at 1-800-POWER-ON, or via the outage reporting tool on our website. Our automated system will provide an estimated restoration time based on the nature of the outage.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 2 -->
+            <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn" style="animation-delay: 0.5s;" data-category="billing">
+                <div class="p-6">
+                    <div class="flex justify-between items-start cursor-pointer" onclick="toggleFAQ(this)">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-file-invoice-dollar text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Why is my bill higher than usual?</h3>
+                                <p class="text-sm text-blue-600 font-medium">
+                                    <i class="fas fa-clock mr-2"></i> Updated 1 week ago
+                                </p>
+                            </div>
+                        </div>
+                        <button class="expand-icon text-blue-500 ml-4">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-content mt-4">
+                        <p class="text-gray-600 mb-4 pl-16">Higher bills can result from increased usage, rate adjustments, or estimated readings. We offer free energy audits to help identify usage patterns. Seasonal changes often account for significant variations - heating in winter and cooling in summer typically increase energy consumption by 20-30%.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 3 -->
+            <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn" style="animation-delay: 0.6s;" data-category="safety">
+                <div class="p-6">
+                    <div class="flex justify-between items-start cursor-pointer" onclick="toggleFAQ(this)">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">What should I do if I see a downed power line?</h3>
+                                <p class="text-sm text-blue-600 font-medium">
+                                    <i class="fas fa-clock mr-2"></i> Updated 3 days ago
+                                </p>
+                            </div>
+                        </div>
+                        <button class="expand-icon text-blue-500 ml-4">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-content mt-4">
+                        <p class="text-gray-600 mb-4 pl-16">Stay away and call emergency services immediately. Assume all downed lines are live and dangerous. Keep at least 30 feet away. If a power line falls on your vehicle, stay inside unless there's immediate danger like fire, then jump clear without touching the ground and vehicle simultaneously.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 4 -->
+            <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn" style="animation-delay: 0.7s;" data-category="equipment">
+                <div class="p-6">
+                    <div class="flex justify-between items-start cursor-pointer" onclick="toggleFAQ(this)">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-tools text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">How often is equipment inspected?</h3>
+                                <p class="text-sm text-blue-600 font-medium">
+                                    <i class="fas fa-clock mr-2"></i> Updated 2 weeks ago
+                                </p>
+                            </div>
+                        </div>
+                        <button class="expand-icon text-blue-500 ml-4">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-content mt-4">
+                        <p class="text-gray-600 mb-4 pl-16">We perform routine inspections every 3-6 months on critical infrastructure. All equipment undergoes thorough testing before installation. Transformers and substations receive thermal imaging scans annually to detect potential issues before they cause problems.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 5 -->
+            <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn" style="animation-delay: 0.8s;" data-category="outages">
+                <div class="p-6">
+                    <div class="flex justify-between items-start cursor-pointer" onclick="toggleFAQ(this)">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-power-off text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">How long do outages typically last?</h3>
+                                <p class="text-sm text-blue-600 font-medium">
+                                    <i class="fas fa-clock mr-2"></i> Updated 5 days ago
+                                </p>
+                            </div>
+                        </div>
+                        <button class="expand-icon text-blue-500 ml-4">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-content mt-4">
+                        <p class="text-gray-600 mb-4 pl-16">Most outages are restored within 2-4 hours. Severe weather events may take longer. Check our outage map for real-time restoration estimates. Our priority sequence is: 1) Emergency situations 2) Transmission lines 3) Substations 4) Main distribution lines 5) Neighborhood taps 6) Individual services.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 6 -->
+            <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn" style="animation-delay: 0.9s;" data-category="billing">
+                <div class="p-6">
+                    <div class="flex justify-between items-start cursor-pointer" onclick="toggleFAQ(this)">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-file-invoice-dollar text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">What payment options are available?</h3>
+                                <p class="text-sm text-blue-600 font-medium">
+                                    <i class="fas fa-clock mr-2"></i> Updated 1 month ago
+                                </p>
+                            </div>
+                        </div>
+                        <button class="expand-icon text-blue-500 ml-4">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-content mt-4">
+                        <p class="text-gray-600 mb-4 pl-16">We accept online payments, automatic bank drafts, credit/debit cards, mail-in checks, and in-person payments at authorized locations. Budget billing is available to spread annual costs evenly over 12 months. Payment extensions of up to 10 days can be requested online for qualifying accounts.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 7 -->
+            <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn" style="animation-delay: 1.0s;" data-category="safety">
+                <div class="p-6">
+                    <div class="flex justify-between items-start cursor-pointer" onclick="toggleFAQ(this)">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Is it safe to use generators during outages?</h3>
+                                <p class="text-sm text-blue-600 font-medium">
+                                    <i class="fas fa-clock mr-2"></i> Updated 1 week ago
+                                </p>
+                            </div>
+                        </div>
+                        <button class="expand-icon text-blue-500 ml-4">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-content mt-4">
+                        <p class="text-gray-600 mb-4 pl-16">Generators can be used safely if properly installed. Always operate portable generators outdoors away from windows to prevent carbon monoxide poisoning. Never connect a generator directly to your home's wiring without a proper transfer switch - this can backfeed power into lines and endanger utility workers.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 8 -->
+            <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn" style="animation-delay: 1.1s;" data-category="equipment">
+                <div class="p-6">
+                    <div class="flex justify-between items-start cursor-pointer" onclick="toggleFAQ(this)">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-tools text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">What causes flickering lights?</h3>
+                                <p class="text-sm text-blue-600 font-medium">
+                                    <i class="fas fa-clock mr-2"></i> Updated 3 weeks ago
+                                </p>
+                            </div>
+                        </div>
+                        <button class="expand-icon text-blue-500 ml-4">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-content mt-4">
+                        <p class="text-gray-600 mb-4 pl-16">Brief flickering might be caused by high-demand appliances starting up. Persistent flickering could indicate loose wiring connections either in your home or on our system. If flickering affects multiple homes or lasts more than a few minutes, please report it as it may indicate equipment needing repair.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 9 -->
+            <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn" style="animation-delay: 1.2s;" data-category="solar">
+                <div class="p-6">
+                    <div class="flex justify-between items-start cursor-pointer" onclick="toggleFAQ(this)">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-solar-panel text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">How does solar panel installation affect my service?</h3>
+                                <p class="text-sm text-blue-600 font-medium">
+                                    <i class="fas fa-clock mr-2"></i> Updated 2 days ago
+                                </p>
+                            </div>
+                        </div>
+                        <button class="expand-icon text-blue-500 ml-4">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-content mt-4">
+                        <p class="text-gray-600 mb-4 pl-16">Solar installations require approval and a new net meter. When generating excess power, it flows back to the grid and you receive credits. There's a one-time interconnection fee of $100. System size is limited to 120% of your annual usage. Battery storage systems require additional safety inspections.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 10 -->
+            <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn" style="animation-delay: 1.3s;" data-category="billing">
+                <div class="p-6">
+                    <div class="flex justify-between items-start cursor-pointer" onclick="toggleFAQ(this)">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-file-invoice-dollar text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">What are the different charges on my bill?</h3>
+                                <p class="text-sm text-blue-600 font-medium">
+                                    <i class="fas fa-clock mr-2"></i> Updated 2 months ago
+                                </p>
+                            </div>
+                        </div>
+                        <button class="expand-icon text-blue-500 ml-4">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-content mt-4">
+                        <p class="text-gray-600 mb-4 pl-16">Your bill includes: 1) Energy charge (per kWh used) 2) Base service charge (fixed daily cost) 3) Distribution charge (maintaining local infrastructure) 4) State taxes and fees 5) Renewable energy fund contribution (0.5% of total). Detailed explanations are available in the "Understanding Your Bill" section of our website.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 11 -->
+            <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn" style="animation-delay: 1.4s;" data-category="outages">
+                <div class="p-6">
+                    <div class="flex justify-between items-start cursor-pointer" onclick="toggleFAQ(this)">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-power-off text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Why does power go out when it rains?</h3>
+                                <p class="text-sm text-blue-600 font-medium">
+                                    <i class="fas fa-clock mr-2"></i> Updated 1 week ago
+                                </p>
+                            </div>
+                        </div>
+                        <button class="expand-icon text-blue-500 ml-4">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-content mt-4">
+                        <p class="text-gray-600 mb-4 pl-16">Rain can cause outages when water penetrates damaged equipment or when wind accompanies the rain, causing tree branches to contact lines. Our system has weatherproofing, but older components may fail when wet. We're gradually replacing vulnerable equipment with submersible designs that better resist moisture.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 12 -->
+            <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn" style="animation-delay: 1.5s;" data-category="solar">
+                <div class="p-6">
+                    <div class="flex justify-between items-start cursor-pointer" onclick="toggleFAQ(this)">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-solar-panel text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Do you offer net metering for solar customers?</h3>
+                                <p class="text-sm text-blue-600 font-medium">
+                                    <i class="fas fa-clock mr-2"></i> Updated 3 days ago
+                                </p>
+                            </div>
+                        </div>
+                        <button class="expand-icon text-blue-500 ml-4">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-content mt-4">
+                        <p class="text-gray-600 mb-4 pl-16">Yes, we offer 1:1 net metering where excess generation credits your account at the full retail rate. Credits roll over month-to-month with an annual "true-up" where remaining credits are paid at the wholesale rate (currently $0.03/kWh). Systems must be sized to not exceed 120% of your annual consumption.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- No Results Message (Hidden by default) -->
+        <div class="text-center py-12 hidden" id="no-results">
+            <i class="fas fa-search fa-3x text-blue-400 mb-4"></i>
+            <h3 class="text-2xl font-medium text-gray-600 mb-2">No FAQs found</h3>
+            <p class="text-gray-500 mb-6">We couldn't find any FAQs matching your search. Try different keywords or categories.</p>
+            <button class="bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition-all" id="reset-filters">
+                <i class="fas fa-sync-alt mr-2"></i> Reset Filters
+            </button>
+        </div>
+    </div>
+    
+    <!-- Contact Modal (Hidden by default) -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden" id="contact-modal">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full animate-fadeIn">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-bold text-blue-900">
+                        <i class="fas fa-headset mr-2 text-blue-500"></i>
+                        Contact Support
+                    </h3>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <p class="text-gray-600 mb-6">
+                    We're sorry to hear you're not satisfied. Please contact our support team through one of these methods:
+                </p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-phone text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">24/7 Support Hotline</h4>
+                            <p class="text-gray-600">123456789-POWER-HELP</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-envelope text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Email Support</h4>
+                            <p class="text-gray-600">support@powersupply.com</p>
+                        </div>
+                    </div>
+                    
+                   
+                </div>
+                
+                <div class="mt-8">
+                    <button id="confirm-contact" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-all">
+                        <i class="fas fa-check-circle mr-2"></i> Got it, thanks!
+                    </button>
+                    <P class="text-center text-gray-500">OR</P>
+                    <button onclick="window.location.href='contact-copy.html'" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-all">
+                       
+                        <i class="fas fa-paper-plane mr-2"></i>CONTACT US!
+                      </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Footer -->
+      <footer class="border-t py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="zap" class="h-6 w-6 text-blue-600"></i>
+                    <span class="text-xl font-bold">Zephyr Group</span>
+                </div>
+                <p class="text-sm text-gray-600">© 2025 Zephyr Group. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">Terms of Service</a>
+                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">FAQs</a>
+                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">Sitemap</a>
+                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">About Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Login button handler
+            document.getElementById('loginBtn').addEventListener('click', function() {
+                const dropdown = this.nextElementSibling; 
+                dropdown.classList.toggle('hidden'); 
+            });
+
+            // Expand/Collapse FAQ items
+            window.toggleFAQ = function(element) {
+                const faqItem = element.closest('.faq-item');
+                const content = faqItem.querySelector('.faq-content');
+                const icon = faqItem.querySelector('.expand-icon');
+                
+                content.classList.toggle('expanded');
+                icon.classList.toggle('expanded');
+            };
+            
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const faqItems = document.querySelectorAll('.faq-item');
+            const noResults = document.getElementById('no-results');
+            const resetFiltersBtn = document.getElementById('reset-filters');
+            const faqContainer = document.getElementById('faq-container');
+            const searchInput = document.getElementById('search-faq');
+            
+            function filterFAQs() {
+                const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                let visibleItems = 0;
+                
+                faqItems.forEach(item => {
+                    const matchesFilter = activeFilter === 'all' || item.dataset.category === activeFilter;
+                    const text = item.textContent.toLowerCase();
+                    const matchesSearch = searchTerm === '' || text.includes(searchTerm);
+                    
+                    if (matchesFilter && matchesSearch) {
+                        item.style.display = 'block';
+                        visibleItems++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // Show/hide no results message
+                if (visibleItems === 0) {
+                    faqContainer.classList.add('hidden');
+                    noResults.classList.remove('hidden');
+                } else {
+                    faqContainer.classList.remove('hidden');
+                    noResults.classList.add('hidden');
+                }
+                
+                // Animate remaining items
+                animateItems();
+            }
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    filterFAQs();
+                });
+            });
+            
+            // Search functionality
+            searchInput.addEventListener('input', filterFAQs);
+            
+            // Reset filters
+            resetFiltersBtn.addEventListener('click', () => {
+                filterButtons.forEach(btn => {
+                    if (btn.dataset.filter === 'all') {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+                
+                searchInput.value = '';
+                filterFAQs();
+            });
+            
+            // Satisfaction buttons
+            const satisfactionButtons = document.querySelectorAll('.satisfaction-btn');
+            const contactModal = document.getElementById('contact-modal');
+            
+            satisfactionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const satisfied = button.dataset.satisfied;
+                    
+                    if (satisfied === 'no') {
+                        // Show contact modal if not satisfied
+                        contactModal.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        // Show thank you message
+                        const thankYou = document.createElement('div');
+                        thankYou.className = 'fixed bottom-4 right-4 bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center animate-fadeIn';
+                        thankYou.innerHTML = `
+                            <i class="fas fa-check-circle mr-2 text-xl"></i>
+                            <span>Thank you for your feedback!</span>
+                        `;
+                        document.body.appendChild(thankYou);
+                        
+                        setTimeout(() => {
+                            thankYou.classList.add('opacity-0', 'transition-all', 'duration-500');
+                            setTimeout(() => thankYou.remove(), 500);
+                        }, 3000);
+                    }
+                });
+            });
+            
+            // Contact modal
+            const closeModal = document.getElementById('close-modal');
+            const confirmContact = document.getElementById('confirm-contact');
+            
+            closeModal.addEventListener('click', () => {
+                contactModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+            
+            confirmContact.addEventListener('click', () => {
+                contactModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                
+                // Show confirmation message
+                const confirmation = document.createElement('div');
+                confirmation.className = 'fixed bottom-4 right-4 bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center animate-fadeIn';
+                confirmation.innerHTML = `
+                    <i class="fas fa-check-circle mr-2 text-xl"></i>
+                    <span>Our team will contact you shortly!</span>
+                `;
+                document.body.appendChild(confirmation);
+                
+                setTimeout(() => {
+                    confirmation.classList.add('opacity-0', 'transition-all', 'duration-500');
+                    setTimeout(() => confirmation.remove(), 500);
+                }, 3000);
+            });
+            
+            // Helper function to animate items
+            function animateItems() {
+                const visibleItems = document.querySelectorAll('.faq-item[style="display: block;"]');
+                
+                visibleItems.forEach((item, index) => {
+                    item.style.animationDelay = `${0.1 * index}s`;
+                    item.classList.remove('animate-fadeIn');
+                    void item.offsetWidth; // Trigger reflow
+                    item.classList.add('animate-fadeIn');
+                });
+            }
+            
+            // Initial animation
+            setTimeout(() => {
+                document.querySelectorAll('.animate-fadeIn').forEach(el => {
+                    el.style.opacity = 1;
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zephyr Group</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="favicon.png"  type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .header-blur {
+            backdrop-filter: blur(10px);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    keyframes: {
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' }
+                        }
+                    },
+                    animation: {
+                        blink: 'blink 7s ease-in-out',              // One-time blink
+                        blinkInfinite: 'blink 1s  ease-in-out infinite' // Continuous blink
+                    }
+                }
+            }
+        }
+    </script>
+    
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- 🔹 Video Background Behind Header & Hero -->
+<div class="absolute inset-0 h-[100vh] overflow-hidden z-0">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover">
+      <source src="vdobg.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <!-- Optional: Overlay for readability -->
+    <div class="absolute inset-0 bg-black/30"></div>
+  </div>
+  
+  <!-- 🔹 Sticky Header (on top of video) -->
+  <header class=" bg-white/10 backdrop-blur-md sticky top-5 z-50 mx-auto w-[90%] max-w-6xl mt-4 rounded-full shadow-sm border border-white/20">
+    <nav class="flex items-center justify-between px-6 py-3">
+      <!-- Logo and Nav Items Here -->
+      <div class="flex items-center space-x-2">
+        <img src="weblogo.png" alt="" class="max-h-10 max-w-full object-contain" >
+      </div>
+  
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="text-black hover:text-indigo-600 transition">Home</a>
+        <a href="aboutus.html" class="text-black hover:text-indigo-600 transition">About</a>
+        <a href="contact.php" class="text-black hover:text-indigo-600 transition">Contact</a>
+        <a href="faq.html" class="text-black hover:text-indigo-600 transition">FAQs</a>
+        <a href="tnc.html" class="text-black hover:text-indigo-600 transition">Terms & Conditions</a>
+      </div>
+  
+      <div class="flex items-center space-x-4">
+        <div class="relative group">
+          <button id="loginBtn" class="px-4 py-2 text-black hover:text-indigo-600 font-medium transition flex items-center">
+            Login
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="loginDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden z-50 border border-gray-100">
+            <a href="login.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">User Login</a>
+            <a href="admin_login.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Admin Login</a>
+          </div>
+        </div>
+        <button id="signupBtn" onclick="window.location.href='signup.php'" class="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition font-medium">Sign Up</button>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- 🔹 Hero Section -->
+  <section class="relative z-10 flex-grow h-[calc(100vh-80px)] flex items-center justify-center px-6 py-16 sm:py-24 lg:px-8">
+    <div class="text-center text-white">
+      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl drop-shadow-lg">
+        <span id="text1"></span><br>
+        <span id="text2" class="text-indigo-200"></span>
+      </h1>
+      <p class="mt-6 max-w-lg mx-auto text-lg font-semibold text-white drop-shadow animate-blink">
+        Share your experience with power supply in your area and help us improve reliability for everyone.
+      </p>
+      <div class="mt-10 flex items-center justify-center gap-x-6">
+        <a href="#feedback-position" class="rounded-md bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          Go to Feedback Section
+        </a>
+      </div>
+    </div>
+  </section>
+  
+
+
+    <!-- Features Section -->
+    <section id="features" data-aos="fade-up" data-aos-duration="1000" class="bg-white py-24 sm:py-32 ">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:text-center">
+                <h2 class="text-base font-semibold leading-7 text-indigo-600">Power Supply Tracking</h2>
+                <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Better insights for better reliability</p>
+                <p class="mt-6 text-lg leading-8 text-gray-600">
+                    Our system collects feedback from users like you to identify patterns and improve power supply across regions.
+                </p>
+            </div>
+            <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+                <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+                   
+                    <div class="flex flex-col bg-white p-6 rounded-2xl shadow-md transition duration-300 ease-in-out transform hover:scale-110 hover:shadow-[0px_-10px_30px_-5px_rgba(0,0,0,0.2)]">
+                        <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                            <svg class="h-5 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 01-1.44-8.765 4.5 4.5 0 018.302-3.046 3.5 3.5 0 014.504 4.272A4 4 0 0115 17H5.5zm3.75-2.75a.75.75 0 001.5 0V9.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.1 0l-3.25 3.5a.75.75 0 101.1 1.02l1.95-2.1v4.59z" clip-rule="evenodd" />
+                            </svg>
+                            Real-time Monitoring
+                        </dt>
+                        <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                            <p class="flex-auto">Track power supply status in your area with up-to-the-minute accuracy.</p>
+                        </dd>
+                    </div>
+                    
+                    <div class="flex flex-col bg-white p-6 rounded-2xl shadow-md transition duration-300 ease-in-out transform hover:scale-110 hover:shadow-[10px_-10px_30px_-5px_rgba(0,0,0,0.2)]">
+                        <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                            <svg class="h-5 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 1c3.866 0 7 1.79 7 4s-3.134 4-7 4-7-1.79-7-4 3.134-4 7-4zm5.694 8.13c.464-.264.91-.583 1.306-.952V10c0 2.21-3.134 4-7 4s-7-1.79-7-4V8.178c.396.37.842.688 1.306.953C5.838 10.006 7.854 10.5 10 10.5s4.162-.494 5.694-1.37zM3 13.179V15c0 2.21 3.134 4 7 4s7-1.79 7-4v-1.822c-.396.37-.842.688-1.306.953-1.532.875-3.548 1.369-5.694 1.369s-4.162-.494-5.694-1.37A7.009 7.009 0 013 13.179z" clip-rule="evenodd" />
+                            </svg>
+                            Historical Data
+                        </dt>
+                        <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                            <p class="flex-auto">Access historical power supply data to identify patterns and trends.</p>
+                        </dd>
+                    </div>
+
+                    <div class="flex flex-col bg-white p-6 rounded-2xl shadow-md transition duration-300 ease-in-out transform hover:scale-110 hover:shadow-[0px_-10px_30px_-5px_rgba(0,0,0,0.2)]">
+                        <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                            <svg class="h-5 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path d="M15.5 2A1.5 1.5 0 0014 3.5v13a1.5 1.5 0 001.5 1.5h1a1.5 1.5 0 001.5-1.5v-13A1.5 1.5 0 0016.5 2h-1zM9.5 6A1.5 1.5 0 008 7.5v9A1.5 1.5 0 009.5 18h1a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0010.5 6h-1zM3.5 10A1.5 1.5 0 002 11.5v5A1.5 1.5 0 003.5 18h1A1.5 1.5 0 006 16.5v-5A1.5 1.5 0 004.5 10h-1z" />
+                            </svg>
+                            Analytics Dashboard
+                        </dt>
+                        <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                            <p class="flex-auto">View comprehensive analytics on power supply reliability across regions.</p>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="bg-gray-50 py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:max-w-none">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Trusted by power consumers nationwide</h2>
+                    <p class="mt-4 text-lg leading-8 text-gray-600">
+                        Our platform processes thousands of feedback reports daily to improve grid reliability.
+                    </p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="flex flex-col bg-white p-8">
+                        <dt class="text-sm font-semibold leading-6 text-gray-600">Feedback Reports</dt>
+                        <dd class="inline order-first text-3xl font-semibold tracking-tight text-gray-900">
+                              <span class="count-up" data-target="25000">1</span><span>+</span>
+                    </dd>
+                    </div>
+                    <div class="flex flex-col bg-white p-8">
+                        <dt class="text-sm font-semibold leading-6 text-gray-600">Cities Covered</dt>
+                        <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                            <span class="count-up" data-target="120">0</span><span>+</span>
+                          </dd>
+                          
+                    </div>
+                    <div class="flex flex-col bg-white p-8">
+                        <dt class="text-sm font-semibold leading-6 text-gray-600">Response Time</dt>
+                        <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900">Under 2h</dd>
+                    </div>
+                    <div class="flex flex-col bg-white p-8">
+                        <dt class="text-sm font-semibold leading-6 text-gray-600">Satisfaction Rate</dt>
+                        <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                            <span class="count-up" data-target="120">1</span><span>%</span>
+                          </dd>
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="feedback-position" class="relative isolate overflow-hidden bg-indigo-600 py-16 sm:py-24 lg:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+                <div class="max-w-xl lg:max-w-lg">
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Ready to share your feedback?</h2>
+                    <p class="mt-4 text-lg leading-8 text-indigo-200">
+                        Your input helps us identify and address power supply issues more effectively.
+                    </p>
+                    <div class="mt-6 flex max-w-md gap-x-4">
+                        <button id="feedbackBtn" class="animate-blinkInfinite rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                            Go to Feedback Form
+                        </button>
+                    </div>
+                </div>
+                <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
+                    <div class="flex flex-col items-start">
+                        <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+                            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                            </svg>
+                        </div>
+                        <dt class="mt-4 font-semibold text-white">24/7 Monitoring</dt>
+                        <dd class="mt-2 leading-7 text-indigo-200">We track power supply around the clock to ensure quick response to outages.</dd>
+                    </div>
+                    <div class="flex flex-col items-start">
+                        <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+                            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
+                            </svg>
+                        </div>
+                        <dt class="mt-4 font-semibold text-white">Data-Driven</dt>
+                        <dd class="mt-2 leading-7 text-indigo-200">Our decisions are based on real user feedback and comprehensive data analysis.</dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+        <div class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
+            <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto flex flex-col items-center text-center space-y-8 px-6">
+            <div class="text-xl font-bold">Stay Connected</div>
+            <p class="text-gray-400 max-w-lg">Subscribe to our newsletter to receive updates, exclusive offers, and more.</p>
+            <form class="flex space-x-2">
+                <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-lg text-black focus:outline-none">
+                <button class="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-500 transition">Subscribe</button>
+            </form>
+            <div class="border-t border-gray-700 w-full max-w-md"></div>
+            <p class="text-sm text-gray-400">&copy; 2025 Zephyr Group. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Login button handler
+            document.getElementById('loginBtn').addEventListener('click', function() {
+                const dropdown = this.nextElementSibling; 
+                dropdown.classList.toggle('hidden'); 
+            });
+            
+            
+            // Feedback button handler
+            document.getElementById('feedbackBtn').addEventListener('click', function() {
+                alert('This would navigate to the feedback form section');
+                // In a real implementation, you might scroll to the feedback form or navigate to another page
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+
+        
+
+            const text1 = "Power Supply Feedback ";
+            const text2 = "For a Better Grid ";
+    
+            let index1 = 0;
+            let index2 = 0;
+    
+            function typeLetter1() {
+                const el = document.getElementById("text1");
+                if (index1 < text1.length && el) {
+                    el.innerHTML += text1.charAt(index1);
+                    index1++;
+                    const typingSpeed = Math.random() * 30+50;
+                    setTimeout(typeLetter1, typingSpeed);
+                } else {
+                    setTimeout(typeLetter2, 300);
+                }
+            }
+    
+            function typeLetter2() {
+                const el = document.getElementById("text2");
+                if (index2 < text2.length && el) {
+                    el.innerHTML += text2.charAt(index2);
+                    index2++;
+                    const typingSpeed = Math.random() * 30+50;
+                    setTimeout(typeLetter2, typingSpeed);
+                }
+            }
+    
+            setTimeout(typeLetter1, 1000);
+        });
+
+
+
+
+        const counters = document.querySelectorAll('.count-up');
+
+const animateCount = (el, target) => {
+  let start = 0;
+  const duration = 2000;
+  const increment = target / (duration / 16);
+
+  const updateCounter = () => {
+    start += increment;
+    if (start < target) {
+      el.textContent = Math.floor(start).toLocaleString();
+      requestAnimationFrame(updateCounter);
+    } else {
+      el.textContent = target.toLocaleString(); // Add commas
+      if (el.dataset.suffix) el.textContent += el.dataset.suffix;
+    }
+  };
+
+  updateCounter();
+};
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Animate only if not already counting
+        counters.forEach((el) => {
+          const target = +el.getAttribute('data-target');
+          const suffix = el.getAttribute('data-suffix') || '';
+          el.setAttribute('data-suffix', suffix);
+          animateCount(el, target);
+        });
+      } else {
+        // Reset counters when out of view so they animate again next time
+        counters.forEach((el) => {
+          el.textContent = el.dataset.start || '0';
+        });
+      }
+    });
+  },
+  { threshold: 0.5 }
+);
+
+const statsSection = document.querySelector('#stats');
+if (statsSection) observer.observe(statsSection);
+
+</script>
+    
+</body>
+</html>
