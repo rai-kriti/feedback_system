@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerFeedback - Login</title>
-    <link rel="icon" href="favicon.png"  type="image/png">
+    <link rel="icon" href="./media/image/favicon.png"  type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -160,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         
                         <div class="mt-6 flex justify-center">
                             <a href="google-login.php" class="w-full max-w-xs flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-200">
-                                <img src="google.png" alt="Google" class="h-5 w-5 mr-2">
+                                <img src="./media/image/google.png" alt="Google" class="h-5 w-5 mr-2">
                                 Google
                             </a>
                         </div>
@@ -185,7 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <p class="mb-6">Your feedback helps us identify and resolve power issues more efficiently across campus facilities.</p>
                         <div class="video-container">
                             <video id="energy-video" preload="auto" muted>
-                                <source src="monkey.mp4" type="video/mp4">
+                                <source src="./media/image/monkey.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>

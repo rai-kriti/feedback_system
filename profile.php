@@ -106,7 +106,7 @@ $show_password_form = isset($_POST['change_password']) && empty($success);
   <title>Profile Page</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="lucide.js"></script>
-  <link rel="icon" href="favicon.png"  type="image/png">
+  <link rel="icon" href="./media/image/favicon.png"  type="image/png">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 

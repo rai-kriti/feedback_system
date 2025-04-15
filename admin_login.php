@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerFeedback - Admin Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="favicon.png"  type="image/png">
+    <link rel="icon" href="./media/image/favicon.png"  type="image/png">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script>

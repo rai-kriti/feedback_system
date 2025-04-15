@@ -52,7 +52,7 @@ $feedbacks = $conn->query($query);
     <title>Zephyr Group</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="icon" href="favicon.png"  type="image/png">
+    <link rel="icon" href="./media/image/favicon.png"  type="image/png">
     <script>
         tailwind.config = {
             theme: {
@@ -177,7 +177,7 @@ $feedbacks = $conn->query($query);
             <div class="mx-auto py-2 border-b border-dark-700/50">
                 <div class="flex items-center gap-3">
                     <div class="flex items-center space-x-2">
-                        <img src="weblogo.png" alt="" class="max-h-14 max-w-full object-contain">
+                        <img src="./media/image/weblogo.png" alt="" class="max-h-14 max-w-full object-contain">
                     </div>
                 </div>
             </div>

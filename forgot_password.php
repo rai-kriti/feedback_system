@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Reset Password | YourApp</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="lucide.js"></script>
-    <link rel="icon" href="favicon.png"  type="image/png">
+    <link rel="icon" href="./media/image/favicon.png"  type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .gradient-bg {

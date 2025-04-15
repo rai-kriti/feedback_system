@@ -75,7 +75,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zephyr Group</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="favicon.png"  type="image/png">
+    <link rel="icon" href="./media/image/favicon.png"  type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -91,7 +91,7 @@
         class="bg-white/80 backdrop-blur-sm fixed top-5 z-50 mx-auto left-0 right-0 w-[90%] max-w-6xl rounded-full shadow-lg border border-gray-100">
         <nav class="flex items-center justify-between px-6 py-3">
             <div class="flex items-center space-x-2">
-                <img src="weblogo.png" alt="" class="max-h-10 max-w-full object-contain">
+                <img src="./media/image/weblogo.png" alt="" class="max-h-10 max-w-full object-contain">
             </div>
 
             <div class="hidden md:flex space-x-6">
@@ -404,7 +404,7 @@
         <div class="container mx-auto px-4 py-16">
             <div class="relative rounded-xl overflow-hidden h-[400px] shadow-lg border border-gray-200">
                 <div class="absolute inset-0 bg-gray-100 flex items-center justify-center">
-                    <img src="map.png" alt="">
+                    <img src="./media/image/map.png" alt="">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="bg-white p-6 rounded-lg shadow-lg max-w-md text-center border border-gray-200">
                             <h3 class="text-xl font-bold mb-2">Our Headquarters</h3>
@@ -432,7 +432,7 @@
             <div class="grid md:grid-cols-4 gap-8">
 
                 <div class="space-y-4">
-                    <img src="weblogo.png" alt="Logo" class="w-32">
+                    <img src="./media/image/weblogo.png" alt="Logo" class="w-32">
                     <p class="text-gray-400">We are specialized in designings, make your business a brand. Try our premium services.</p>
                     <div class="flex space-x-3 text-red-500 text-lg">
                         <a href="#" class="hover:scale-110 transition-transform"><i data-lucide="instagram"></i></a>
