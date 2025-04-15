@@ -43,5 +43,5 @@ A web-based feedback management system for power supply issues, featuring user a
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/power-supply-feedback-system.git
-   cd power-supply-feedback-system
+   git clone https://github.com/Aman-Ranjan-003/feedback_system.git
+   cd feedback_system
