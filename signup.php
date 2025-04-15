@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerFeedback - Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="icon" href="favicon.png"  type="image/png">
@@ -94,6 +95,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        .login-gradient {
+    background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+}
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-blue-100 font-sans min-h-screen flex items-center justify-center p-4">
@@ -228,17 +232,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </p>
                 </div>
                 
-                <!-- Image/Info Section -->
-                <div class="hidden md:block md:w-1/2 bg-gradient-to-r from-secondary-500 to-primary-500 p-10 flex flex-col items-center justify-center">
-                    <div class="text-white text-center">
-                        <h3 class="text-2xl font-bold mb-4">Campus Energy Management</h3>
-                        <p class="mb-6">Your feedback helps us identify and resolve power issues more efficiently across campus facilities.</p>
-                        <div class="flex justify-center">
-                            <div class="h-40 w-40 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                                <i data-lucide="zap" class="h-20 w-20 text-white"></i>
+                <!-- Right Side - Image -->
+                <div class="hidden md:block md:w-1/2 relative login-gradient">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#3b82f6]/20 to-[#1e40af]/30 z-10"></div>
+
+                    <!-- Content Overlay -->
+                    <div class="absolute inset-0 flex flex-col items-center top-16 z-20 p-8 text-white">
+                        <div class="max-w-md text-center animate-fade-in" style="animation-delay: 0.4s">
+                            <h2 class="text-3xl font-bold mb-4">Power Supply Tracking</h2>
+                            <p class="text-lg opacity-90 mb-8">
+                                Share your experience with power supply in your area and help us improve reliability for everyone.
+                            </p>
+                            <div class="flex justify-center">
+                                <div class="grid grid-cols-2 gap-4 max-w-xs">
+                                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+                                        <div class="text-3xl font-bold">25k+</div>
+                                        <div class="text-sm opacity-80">Feedback Reports</div>
+                                    </div>
+                                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+                                        <div class="text-3xl font-bold">120+</div>
+                                        <div class="text-sm opacity-80">Cities Covered</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
