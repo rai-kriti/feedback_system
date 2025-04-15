@@ -1,6 +1,6 @@
 <?php
 require_once 'vendor/autoload.php';
-
+$config = require 'keys.php';
 session_start();
 
 $client = new Google_Client();

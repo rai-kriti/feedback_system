@@ -6,7 +6,10 @@
     <title>Zephyr Group</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="favicon.png"  type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -78,11 +81,9 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen">
-    
-    
     <div class="container mx-auto ">
         <!-- Header -->
-        <header class="bg-white/80 backdrop-blur-sm fixed top-5 z-50 mx-auto left-0 right-0 w-[90%] max-w-6xl rounded-full shadow-lg border border-gray-100">
+        <header class="bg-white/80 backdrop-blur-sm fixed top-5 z-50 mx-auto left-0 right-0 w-[90%] max-w-6xl rounded-full shadow-sm border border-gray-100">
             <nav class="flex items-center justify-between px-6 py-3">
               <!-- Logo and Nav Items Here -->
               <div class="flex items-center space-x-2">
@@ -90,11 +91,11 @@
               </div>
           
               <div class="hidden md:flex space-x-6">
-                <a href="index.html" class="text-gray-600 hover:text-indigo-600 transition">Home</a>
-                <a href="aboutus.html" class="text-gray-600 hover:text-indigo-600 transition">About</a>
-                <a href="contact.php" class="text-gray-600 hover:text-indigo-600 transition">Contact</a>
-                <a href="faq.html" class="text-gray-600 hover:text-indigo-600 transition">FAQs</a>
-                <a href="tnc.html" class="text-gray-600 hover:text-indigo-600 transition">Terms & Conditions</a>
+                <a href="index.html" class="text-black hover:text-indigo-600 transition">Home</a>
+                <a href="aboutus.html" class="text-black hover:text-indigo-600 transition">About</a>
+                <a href="contact.php" class="text-black hover:text-indigo-600 transition">Contact</a>
+                <a href="faq.html" class="text-black hover:text-indigo-600 transition">FAQs</a>
+                <a href="tnc.html" class="text-black hover:text-indigo-600 transition">Terms & Conditions</a>
               </div>
           
               <div class="flex items-center space-x-4">
@@ -106,11 +107,11 @@
                     </svg>
                   </button>
                   <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden z-50 border border-gray-100">
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">User Login</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Admin Login</a>
+                    <a href="login.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">User Login</a>
+                    <a href="admin_login.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Admin Login</a>
                   </div>
                 </div>
-                <button id="signupBtn" class="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition font-medium">Sign Up</button>
+                <button onclick="window.location.href='signup.php'" class="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition font-medium">Sign Up</button>
               </div>
             </nav>
         </header>
@@ -566,16 +567,14 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="flex items-center gap-2">
-                    <i data-lucide="zap" class="h-6 w-6 text-blue-600"></i>
-                    <span class="text-xl font-bold">Zephyr Group</span>
+                    <img src="weblogo.png" alt="Logo" class="w-32">
                 </div>
                 <p class="text-sm text-gray-600">© 2025 Zephyr Group. All rights reserved.</p>
                 <div class="flex gap-6">
-                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">Home</a>
-                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">Terms of Service</a>
-                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">FAQs</a>
-                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">Sitemap</a>
-                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">About Us</a>
+                    <a href="index.html" class="text-sm text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="tnc.html" class="text-sm text-gray-600 hover:text-blue-600">Terms of Service</a>
+                    <a href="contact.php" class="text-sm text-gray-600 hover:text-blue-600">Contact</a>
+                    <a href="aboutus.html" class="text-sm text-gray-600 hover:text-blue-600">About Us</a>
                 </div>
             </div>
         </div>

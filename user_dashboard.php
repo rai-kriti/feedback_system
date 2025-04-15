@@ -209,7 +209,7 @@ $feedbacks = $feedback_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
             <div class="mx-auto py-2 border-b border-dark-700/50">
                 <div class="flex items-center gap-3">
                     <div class="flex items-center space-x-2">
-                        <img src="weblogo.png" alt="" class="max-h-16 max-w-full object-contain">
+                        <img src="weblogo.png" alt="" class="max-h-14 max-w-full object-contain">
                     </div>
                 </div>
             </div>
@@ -227,11 +227,11 @@ $feedbacks = $feedback_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                 </button>
 
                 <!-- Added back FAQs and Terms -->
-                <button class="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-xl text-gray-300 hover:bg-dark-700/50 hover:text-white transition-smooth sidebar-link">
+                <button onclick="window.open('faq.html', '_blank')" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-xl text-gray-300 hover:bg-dark-700/50 hover:text-white transition-smooth sidebar-link">
                     <i data-lucide="help-circle" class="h-4.5 w-4.5"></i>
                     FAQs
                 </button>
-                <button class="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-xl text-gray-300 hover:bg-dark-700/50 hover:text-white transition-smooth sidebar-link">
+                <button onclick="window.open('tnc.html', '_blank')" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-xl text-gray-300 hover:bg-dark-700/50 hover:text-white transition-smooth sidebar-link">
                     <i data-lucide="file-text" class="h-4.5 w-4.5"></i>
                     Terms & Conditions
                 </button>

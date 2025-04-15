@@ -198,7 +198,7 @@ $users = $result->fetch_all(MYSQLI_ASSOC);
             <div class="mx-auto py-2 border-b border-dark-700/50">
                 <div class="flex items-center gap-3">
                     <div class="flex items-center space-x-2">
-                        <img src="weblogo.png" alt="" class="max-h-16 max-w-full object-contain">
+                        <img src="weblogo.png" alt="" class="max-h-14 max-w-full object-contain">
                     </div>
                 </div>
             </div>
