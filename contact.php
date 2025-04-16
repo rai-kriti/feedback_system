@@ -99,7 +99,7 @@
                 <a href="aboutus.html" class="text-gray-600 hover:text-indigo-600 transition">About</a>
                 <a href="contact.php" class="text-gray-600 hover:text-indigo-600 transition">Contact</a>
                 <a href="faq.html" class="text-gray-600 hover:text-indigo-600 transition">FAQs</a>
-                <a href="tnc.html" class="text-gray-600 hover:text-indigo-600 transition">Terms & Conditions</a>
+                <a href="tnc.html" target="_blank" class="text-gray-600 hover:text-indigo-600 transition">Terms & Conditions</a>
             </div>
 
             <div class="flex items-center space-x-4">
@@ -451,7 +451,7 @@
                         <li><a href="index.html" class="hover:text-red-400 transition">Home</a></li>
                         <li><a href="aboutus.html" class="hover:text-red-400 transition">About Us</a></li>
                         <li><a href="faq.html" class="hover:text-red-400 transition">FAQs</a></li>
-                        <li><a href="tnc.html" class="hover:text-red-400 transition">Terms & Conditions</a></li>
+                        <li><a href="tnc.html" target="_blank" class="hover:text-red-400 transition">Terms & Conditions</a></li>
                     </ul>
                 </div>
     

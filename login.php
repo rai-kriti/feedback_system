@@ -185,7 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <p class="mb-6">Your feedback helps us identify and resolve power issues more efficiently across campus facilities.</p>
                         <div class="video-container">
                             <video id="energy-video" preload="auto" muted>
-                                <source src="./media/image/monkey.mp4" type="video/mp4">
+                                <source src="./media/video/monkey.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
