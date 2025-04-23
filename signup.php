@@ -238,7 +238,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <!-- Content Overlay -->
                     <div class="absolute inset-0 flex flex-col items-center top-16 z-20 p-8 text-white">
-                        <div class="max-w-md text-center animate-fade-in" style="animation-delay: 0.4s">
+                        <div class="max-w-md text-center">
                             <h2 class="text-3xl font-bold mb-4">Power Supply Tracking</h2>
                             <p class="text-lg opacity-90 mb-8">
                                 Share your experience with power supply in your area and help us improve reliability for everyone.
